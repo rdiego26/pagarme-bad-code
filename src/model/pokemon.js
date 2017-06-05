@@ -18,4 +18,8 @@ const pokemon = sequelize.define('pokemon', {
 	}
 });
 
+pokemon.sync({force: true}).then(function () {
+	console.log('Model is ready!');
+});
+
 module.exports = pokemon;
