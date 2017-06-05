@@ -19,7 +19,7 @@ const dao = {
 	},
 
 	deleteOne: function(query) {
-		return dao.destroy({where: query});
+		return model.destroy({where: query});
 	}
 
 };
