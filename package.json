@@ -4,7 +4,7 @@
   "description": "Example of a really bad code",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/*.js"
   },
   "bugs": {
     "url": "https://github.com/rdiego26/pagarme-bad-code/issues"
@@ -23,5 +23,11 @@
     "request-promise": "4.0.0",
     "sequelize": "3.30.4",
     "sqlite3": "3.1.4"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "istanbul": "0.4.2",
+    "mocha": "2.4.5",
+    "supertest": "1.2.0"
   }
 }
