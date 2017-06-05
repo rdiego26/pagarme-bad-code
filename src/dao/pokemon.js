@@ -16,6 +16,10 @@ const dao = {
 
 	findAll: function () {
 		return model.findAll();
+	},
+
+	deleteOne: function(query) {
+		return dao.destroy({where: query});
 	}
 
 };
