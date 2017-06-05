@@ -1,16 +1,25 @@
-var express = require('express');
-var app = express();
+const path = require('path');
+const constants = require(path.resolve('src/utils/constants'));
+const express = require('express');
+
+
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('pokemons', null, null, {
+
+var sequelize = new Sequelize(constants.db.name, null, null, {
 	dialect: 'sqlite'
 });
-var bodyParser = require('body-parser');
-var request = require('request-promise');
 
+const bodyParser = require('body-parser');
+const request = require('request-promise');
+
+/* App Configuration */
+const app = express();
+app.set('port', constants.server.port);
+app.set('title', constants.app.name);
 app.use(bodyParser.json());
 
-app.listen(3000, function () {
-	console.log('Listening on http://localhost:3000');
+app.listen(app.get('port'), function () {
+	console.log('Listening app ' + app.get('title') + ' on port ' + app.get('port'));
 });
 
 var Pokemon = sequelize.define('pokemon', {
