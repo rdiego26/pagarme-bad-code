@@ -2,7 +2,7 @@
   "name": "pokemon",
   "version": "1.0.0",
   "description": "Example of a really bad code",
-  "main": "idnex.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
