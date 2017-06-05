@@ -4,7 +4,7 @@
   "description": "Example of a really bad code",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha test/*.js"
+    "test": "mocha --recursive"
   },
   "bugs": {
     "url": "https://github.com/rdiego26/pagarme-bad-code/issues"
