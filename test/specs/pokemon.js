@@ -9,10 +9,10 @@ describe('Pokémon Spec', function() {
 	const _fullPokemon = mocks.fullValidToCreate;
 	const _simplePokemon = mocks.simpleValidToCreate;
 
-	before(function() {
+	before(function(done) {
 		model.sync({force: true}).then(function () {
 			dao.deleteOne({name: _fullPokemon.name}).then(function() {
-				return;
+				done();
 			}).catch(function(err) {
 				console.error(err);
 			});
@@ -20,29 +20,34 @@ describe('Pokémon Spec', function() {
 
 	});
 
-	after(function() {
+	after(function(done) {
 		dao.deleteOne({name: _fullPokemon.name}).then(function() {
-			return;
+			done();
 		}).catch(function(err) {
 			console.error(err);
 		});
 	});
 
-	it('should create valid pokémon', function(done) {
-		const _pokemom = _fullPokemon;
+	it('should create full valid pokémon', function(done) {
 
-		dao.create(_pokemom).then(function() {
+		dao.create(_fullPokemon).then(function() {
 			done();
 		});
 	});
 
-	// it('not should create pokémon passing blank/null name', function(done) {
-	// 	const _invalidPokemon = mocks.invalidToCreate;
-	//
-	// 	dao.create(_invalidPokemon).then(function() {
-	// 	}).catch(function() {
-	// 		done();
-	// 	});
-	// });
+	it('should create simple valid pokémon', function(done) {
+		dao.create(_simplePokemon).then(function() {
+			done();
+		});
+	});
+
+	it('not should create pokémon passing blank/null name', function(done) {
+		const _invalidPokemon = mocks.invalidToCreate;
+
+		dao.create(_invalidPokemon).then(function() {
+		}).catch(function() {
+			done();
+		});
+	});
 
 });
