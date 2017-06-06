@@ -1,13 +1,13 @@
 const mocks = {
 
 	fullValidToCreate: {
-		name: 'PokemonName',
+		name: 'PokemonNameOne',
 		price: 10,
 		stock: 5
 	},
 
 	simpleValidToCreate: {
-		name: 'PokemonName',
+		name: 'PokemonNameTwo',
 		price: 9
 	},
 
