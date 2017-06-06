@@ -22,7 +22,13 @@ describe('Pokémon Spec', function() {
 
 	after(function(done) {
 		dao.deleteOne({name: _fullPokemon.name}).then(function() {
-			done();
+
+			dao.deleteOne({name: _simplePokemon.name}).then(function() {
+				done();
+			}).catch(function(err) {
+				console.error(err);
+			});
+
 		}).catch(function(err) {
 			console.error(err);
 		});
@@ -38,6 +44,40 @@ describe('Pokémon Spec', function() {
 	it('should create simple valid pokémon', function(done) {
 		dao.create(_simplePokemon).then(function() {
 			done();
+		});
+	});
+
+	it('should create valid simple pokémon and find then', function(done) {
+		dao.create(_simplePokemon).then(function() {
+
+			dao.findOne({name: _simplePokemon.name}).then(function(fetched) {
+				assert.ok(fetched.name === _simplePokemon.name);
+				assert.ok(fetched.price === _simplePokemon.price);
+				assert.property(fetched, 'id');
+				assert.ok(fetched.id !== null);
+				assert.property(fetched, 'createdAt');
+				assert.property(fetched, 'updatedAt');
+
+				done();
+			});
+
+		});
+	});
+
+	it('should create valid full pokémon and find then', function(done) {
+		dao.create(_fullPokemon).then(function() {
+
+			dao.findOne({name: _fullPokemon.name}).then(function(fetched) {
+				assert.ok(fetched.name === _fullPokemon.name);
+				assert.ok(fetched.price === _fullPokemon.price);
+				assert.property(fetched, 'id');
+				assert.ok(fetched.id !== null);
+				assert.property(fetched, 'createdAt');
+				assert.property(fetched, 'updatedAt');
+
+				done();
+			});
+
 		});
 	});
 
