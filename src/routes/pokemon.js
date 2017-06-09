@@ -6,9 +6,9 @@ module.exports = function(app) {
 	const pokemonController = require(path.resolve('src/controller/pokemon'));
 	const router = require('express').Router();
 
-	router.get('/get-pokemons', pokemonController.getAll);
-	router.put('/create-pokemons', pokemonController.create);
-	router.post('/buy-pokemons', pokemonController.buy);
+	router.get('/pokemons', pokemonController.getAll);
+	router.put('/pokemons', pokemonController.create);
+	router.post('/pokemons', pokemonController.buy);
 
 	app.use(router);
 };

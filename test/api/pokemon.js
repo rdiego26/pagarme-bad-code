@@ -21,7 +21,7 @@ describe('API', function() {
 		it('get 200 when get pokémons', function(done) {
 
 			request(app)
-				.get('/get-pokemons')
+				.get('/pokemons')
 				.expect(200, done);
 
 		});
@@ -29,7 +29,7 @@ describe('API', function() {
 		it('get array when get pokémons', function(done) {
 
 			request(app)
-				.get('/get-pokemons')
+				.get('/pokemons')
 				.expect(200)
 				.end(function(err, res) {
 					if(!err) {
@@ -46,7 +46,7 @@ describe('API', function() {
 		it('should not buy a not created pokémon', function(done) {
 
 			request(app)
-				.put('/create-pokemons')
+				.put('/pokemons')
 				.send(_validFullPokemon)
 				.expect(200, done);
 
@@ -55,7 +55,7 @@ describe('API', function() {
 		it('should create a valid full pokémon', function(done) {
 
 			request(app)
-				.put('/create-pokemons')
+				.put('/pokemons')
 				.send(_validFullPokemon)
 				.expect(200)
 				.end(function(err, res) {
