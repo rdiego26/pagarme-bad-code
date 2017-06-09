@@ -18,8 +18,10 @@ const controller = {
 	buy: function(req, res) {
 
 		const _filter = {
-			name: req.body.name
-		};
+			name: req.body.pokemon.name
+		},
+		_pokemon = req.body.pokemon,
+		_creditCard = req.body.credit_card;
 
 		dao.findOne(_filter)
 		.then(function(pokemon) {
@@ -30,7 +32,7 @@ const controller = {
 					error: 'Pokémon not registered!'
 				});
 
-			} else if (!pokemon ||  pokemon.stock < req.body.quantity) {
+			} else if (!pokemon ||  pokemon.stock < _pokemon.quantity) {
 
 				res.status(400).send({
 					error: 'Not enought ' + pokemon.name + ' in stock: ' + pokemon.stock
@@ -39,16 +41,17 @@ const controller = {
 			} else {
 
 				var _data = {
-					pokemon: pokemon
+					pokemon: pokemon,
+					creditCard: _creditCard
 				};
 
-				_data.pokemon.quantity = req.body.quantity;
+				_data.pokemon.quantity = _pokemon.quantity;
 
 				pagarMeProvider.buyPokemon(_data)
 					.then(function (body){
 						if (body.status == 'paid') {
 
-							pokemon.stock = pokemon.stock - req.body.quantity;
+							pokemon.stock = pokemon.stock - _pokemon.quantity;
 							pokemon.save()
 								.then(function(pokemon) {
 									res.send(body);
