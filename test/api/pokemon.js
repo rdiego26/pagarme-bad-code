@@ -43,6 +43,15 @@ describe('API', function() {
 
 		});
 
+		it('should not buy a not created pokémon', function(done) {
+
+			request(app)
+				.put('/create-pokemons')
+				.send(_validFullPokemon)
+				.expect(200, done);
+
+		});
+
 		it('should create a valid full pokémon', function(done) {
 
 			request(app)
@@ -65,33 +74,6 @@ describe('API', function() {
 						done();
 					}
 				});
-
-		});
-
-		it('should not buy a not created pokémon', function(done) {
-
-			request(app)
-				.ut('/create-pokemons')
-				.send(_validFullPokemon)
-				.expect(200)
-				.end(function(err, res) {
-					m
-				});
-
-		});
-
-		it('should buy a created pokémon', function(done) {
-
-			var _
-
-			var _obj = {
-				name: 'PokemonNameOne'
-			};
-
-			request(app)
-				.post('/buy-pokemons')
-				.send(_obj)
-				.expect(400, done);
 
 		});
 
