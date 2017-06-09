@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const dao = require(path.resolve('src/dao/pokemon'));
 const pagarMeProvider = require(path.resolve('src/provider/pagarme'));

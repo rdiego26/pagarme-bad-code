@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const constants = require(path.resolve('src/utils/constants'));
 const request = require('request-promise');

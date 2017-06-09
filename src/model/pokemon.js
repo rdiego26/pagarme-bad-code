@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const sequelize = require(path.resolve('src/utils/connection'));
 const Sequelize = require('sequelize');

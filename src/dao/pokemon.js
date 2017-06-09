@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const model = require(path.resolve('src/model/pokemon'));
 
