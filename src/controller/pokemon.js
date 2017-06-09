@@ -20,8 +20,8 @@ const controller = {
 		const _filter = {
 			name: req.body.pokemon.name
 		},
-		_pokemon = req.body.pokemon,
-		_creditCard = req.body.credit_card;
+		_pokemon = req.body.pokemon || {},
+		_creditCard = req.body.credit_card || {};
 
 		dao.findOne(_filter)
 		.then(function(pokemon) {
