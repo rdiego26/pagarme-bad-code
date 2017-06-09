@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "name": "Caterpie",
+    "price": 10,
+    "stock": 1,
+    "createdAt": "2017-06-09T13:07:11.038Z",
+    "updatedAt": "2017-06-09T13:07:11.038Z"
+  }
+]
