@@ -11,6 +11,11 @@ const constants = {
 
 	server: {
 		port: 3000
+	},
+
+	pagarme: {
+		uri: 'https://api.pagar.me/1/transactions',
+		apiKey: 'ak_test_WHgSu2XFmvoopAZMetV3LfA2RfEEQg'
 	}
 
 };

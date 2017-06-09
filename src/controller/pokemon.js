@@ -1,5 +1,6 @@
 const path = require('path');
 const dao = require(path.resolve('src/dao/pokemon'));
+const pagarMeProvider = require(path.resolve('src/provider/pagarme'));
 const request = require('request-promise');
 
 const controller = {
@@ -37,23 +38,13 @@ const controller = {
 
 			} else {
 
-				request({
-					uri: 'https://api.pagar.me/1/transactions',
-					method: 'POST',
-					json: {
-						api_key: "ak_test_WHgSu2XFmvoopAZMetV3LfA2RfEEQg",
-						amount: pokemon.price * req.body.quantity * 100,
-						card_number: "4024007138010896",
-						card_expiration_date: "1050",
-						card_holder_name: "Ash Ketchum",
-						card_cvv: "123",
-						metadata: {
-							product: 'pokemon',
-							name: pokemon.name,
-							quantity: req.body.quantity
-						}
-					}
-				})
+				var _data = {
+					pokemon: pokemon
+				};
+
+				_data.pokemon.quantity = req.body.quantity;
+
+				pagarMeProvider.buyPokemon(_data)
 					.then(function (body){
 						if (body.status == 'paid') {
 
@@ -62,6 +53,8 @@ const controller = {
 								.then(function(pokemon) {
 									res.send(body);
 								})
+						} else {
+							res.status(400).end();
 						}
 					})
 					.catch(function (err){
