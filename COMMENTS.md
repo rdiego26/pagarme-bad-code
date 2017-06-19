@@ -4,6 +4,8 @@
 # Api
 - Como se trata de um teste optei por colocar a documentação no Wiki do projeto, mas poderia usar o Swagger ou algo semelhante
 - Implementar as badges do [Snyk](https://snyk.io/), [Travis CI](https://travis-ci.org/) e [Codecov](https://codecov.io/) . A maioria não é permitida para repos privados . =/ 
+- Implementar recurso de healthCheck da API
+- Implementar recurso de healthCheck para API da Pagarme 
 
 # Tooling
 - Não tive tempo para implementar o Grunt para automatizar algumas tasks
