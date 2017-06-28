@@ -4,7 +4,7 @@ Pagarme bad code challenge .
 
 [![Known Vulnerabilities](https://snyk.io/test/github/rdiego26/pagarme-bad-code/badge.svg)](https://snyk.io/test/github/rdiego26/pagarme-bad-code)
 [![Dependencies](https://david-dm.org/rdiego26/pagarme-bad-code.svg)](https://david-dm.org/rdiego26/pagarme-bad-code.svg)
-
+[![Build Status](https://travis-ci.org/rdiego26/pagarme-bad-code.svg?branch=master)](https://travis-ci.org/rdiego26/pagarme-bad-code)
 
 ## Challenge 
 Olhar para um projeto bem simples, que está com o código completamente abandonado.   
