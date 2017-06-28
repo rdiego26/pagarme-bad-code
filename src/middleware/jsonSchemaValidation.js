@@ -7,7 +7,7 @@ module.exports = function(err, req, res, next) {
 
         res.json({
             statusText: 'Bad Request',
-            validations: err.validations
+            validations: err.validations.body
         });
     } else {
         next(err);
