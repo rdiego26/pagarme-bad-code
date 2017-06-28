@@ -4,6 +4,7 @@ const path = require('path');
 const constants = require(path.resolve('src/utils/constants'));
 const express = require('express');
 const pokemonRoutes = require(path.resolve('src/routes/pokemon'));
+const pokemonModel = require(path.resolve('src/model/pokemon'));
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
@@ -17,7 +18,11 @@ app.use(helmet());
 pokemonRoutes(app);
 
 app.listen(app.get('port'), function () {
-	console.log('Listening app ' + app.get('title') + ' on port ' + app.get('port'));
+
+	pokemonModel.sync({force: true}).then(function () {
+        console.log('Listening app ' + app.get('title') + ' on port ' + app.get('port'));
+    });
+
 });
 
 module.exports = app;

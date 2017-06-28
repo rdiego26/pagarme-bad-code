@@ -7,7 +7,10 @@ const Sequelize = require('sequelize');
 const pokemon = sequelize.define('pokemon', {
 	name: {
 		type: Sequelize.STRING,
-		allowNull: false
+		allowNull: false,
+		validate: {
+            isAlpha: true
+		}
 	},
 	price: {
 		type: Sequelize.INTEGER,
@@ -18,10 +21,6 @@ const pokemon = sequelize.define('pokemon', {
 		allowNull: true,
 		defaultValue: 1
 	}
-});
-
-pokemon.sync({force: true}).then(function () {
-	console.log('Model is ready!');
 });
 
 module.exports = pokemon;
