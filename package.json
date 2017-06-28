@@ -1,6 +1,6 @@
 {
-  "name": "pokemon",
-  "version": "1.0.0",
+  "name": "Pokemon Seller",
+  "version": "2.0.0",
   "description": "Example of a really bad code",
   "main": "src/index.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "body-parser": "1.17.2",
     "express": "4.15.3",
     "helmet": "3.6.1",
+    "ramda": "0.24.1",
     "request": "2.81.0",
     "request-promise": "4.0.0",
     "sequelize": "3.30.4",
