@@ -16,7 +16,7 @@
   "author": "Diego Ramos<rdiego26@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "1.15.2",
+    "body-parser": "1.17.2",
     "express": "4.13.4",
     "helmet": "3.6.1",
     "request": "2.73.0",
