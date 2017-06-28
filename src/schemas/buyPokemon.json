@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "pokemon": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "quantity": {
+          "type": "integer",
+          "required": true,
+          "minimum": 1
+        }
+      }
+    },
+    "credit_card": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "card_number": {
+          "type": "string",
+          "required": true,
+          "maxLength": 20
+        },
+        "card_expiration_date": {
+          "type": "string",
+          "required": true,
+          "minLength": 3,
+          "maxLength": 3
+        },
+        "card_holder_name": {
+          "type": "string",
+          "required": true
+        },
+        "card_cvv": {
+          "type": "string",
+          "required": true,
+          "maxLength": 3
+        }
+      }
+    }
+  }
+}
