@@ -5,6 +5,7 @@ const constants = require(path.resolve('src/utils/constants'));
 const express = require('express');
 const pokemonRoutes = require(path.resolve('src/routes/pokemon'));
 const pokemonModel = require(path.resolve('src/model/pokemon'));
+const jsonSchemaValidation = require(path.resolve('src/middleware/jsonSchemaValidation'));
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
@@ -16,6 +17,8 @@ app.use(bodyParser.json());
 app.use(helmet());
 
 pokemonRoutes(app);
+
+app.use(jsonSchemaValidation);
 
 app.listen(app.get('port'), function () {
 
