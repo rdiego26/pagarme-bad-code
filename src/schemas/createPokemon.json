@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "number",
+      "required": true,
+      "minimum": 1
+    },
+    "stock": {
+      "type": "integer",
+      "required": false
+    }
+  }
+}
