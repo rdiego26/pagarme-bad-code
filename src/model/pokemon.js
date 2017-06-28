@@ -8,12 +8,10 @@ const pokemon = sequelize.define('pokemon', {
 	name: {
 		type: Sequelize.STRING,
 		allowNull: false,
-		validate: {
-            isAlpha: true
-		}
+		unique: true
 	},
 	price: {
-		type: Sequelize.INTEGER,
+		type: Sequelize.FLOAT(2),
 		allowNull: false
 	},
 	stock: {
