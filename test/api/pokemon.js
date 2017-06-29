@@ -1,6 +1,8 @@
 const request = require('supertest'),
 	path = require('path'),
+	R = require('ramda'),
 	dao = require(path.resolve('src/dao/pokemon')),
+	model = require(path.resolve('src/model/pokemon')),
 	mocks = require(path.resolve('test/mocks')),
 	assert = require('chai').assert,
 	app = require(path.resolve('src/index'));
@@ -11,11 +13,10 @@ describe('API', function() {
 
 		const _validFullPokemon = mocks.fullValidToCreate;
 
-		afterEach(function(done) {
-
-			dao.deleteOne({name:_validFullPokemon.name}).then(function() {
+		beforeEach(function(done) {
+			model.sync({force: true}).then(function() {
 				done();
-			}).catch();
+			});
 		});
 
 		it('get 200 when get pokémons', function(done) {
@@ -33,7 +34,7 @@ describe('API', function() {
 				.expect(200)
 				.end(function(err, res) {
 					if(!err) {
-						var _fetchedPokemons = res.body;
+						const _fetchedPokemons = res.body;
 
 						assert.isArray(_fetchedPokemons);
 
@@ -46,9 +47,33 @@ describe('API', function() {
 		it('should not buy a not created pokémon', function(done) {
 
 			request(app)
-				.put('/pokemons')
+				.post('/pokemons')
 				.send(_validFullPokemon)
-				.expect(200, done);
+				.expect(400, done);
+
+		});
+
+		it('should not create pokémon with invalid price', function(done) {
+
+			const _pokemon = R.clone(_validFullPokemon);
+			_pokemon.price = 0;
+
+			request(app)
+				.put('/pokemons')
+				.send(_pokemon)
+				.expect(400)
+				.end(function(err, res) {
+					if(!err) {
+						const _result = res.body;
+						const _validationMessages = R.pluck('messages', R.prop('validations', _result));
+						const _validationProperties = R.pluck('property', R.prop('validations', _result));
+
+						assert.ok(R.contains('minimum value', R.head(R.flatten(_validationMessages))));
+						assert.ok(R.contains('price', R.head(R.flatten(_validationProperties))));
+
+						done();
+					}
+				});
 
 		});
 
@@ -60,7 +85,7 @@ describe('API', function() {
 				.expect(200)
 				.end(function(err, res) {
 					if(!err) {
-						var _createdPokemon = res.body;
+						const _createdPokemon = res.body;
 
 						assert.isObject(_createdPokemon);
 						assert.ok(_createdPokemon.name === _validFullPokemon.name);
