@@ -3,6 +3,7 @@ Pagarme bad code challenge .
 
 
 [![Known Vulnerabilities](https://snyk.io/test/github/rdiego26/pagarme-bad-code/badge.svg)](https://snyk.io/test/github/rdiego26/pagarme-bad-code)
+[![codecov](https://codecov.io/gh/rdiego26/pagarme-bad-code/branch/master/graph/badge.svg)](https://codecov.io/gh/rdiego26/pagarme-bad-code)
 [![Dependencies](https://david-dm.org/rdiego26/pagarme-bad-code.svg)](https://david-dm.org/rdiego26/pagarme-bad-code.svg)
 [![Build Status](https://travis-ci.org/rdiego26/pagarme-bad-code.svg?branch=master)](https://travis-ci.org/rdiego26/pagarme-bad-code)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/75b5aafb8a5b4a2abdb3b662a0f34b21)](https://www.codacy.com/app/rdiego26/pagarme-bad-code?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rdiego26/pagarme-bad-code&amp;utm_campaign=Badge_Grade)
