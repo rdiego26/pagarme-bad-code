@@ -77,6 +77,30 @@ describe('API', function() {
 
 		});
 
+		it('should not create pokémon with invalid stock', function(done) {
+
+			const _pokemon = R.clone(_validFullPokemon);
+			_pokemon.stock = "A";
+
+			request(app)
+				.put('/pokemons')
+				.send(_pokemon)
+				.expect(400)
+				.end(function(err, res) {
+					if(!err) {
+						const _result = res.body;
+						const _validationMessages = R.pluck('messages', R.prop('validations', _result));
+						const _validationProperties = R.pluck('property', R.prop('validations', _result));
+
+						assert.ok(R.contains('type', R.head(R.flatten(_validationMessages))));
+						assert.ok(R.contains('stock', R.head(R.flatten(_validationProperties))));
+
+						done();
+					}
+				});
+
+		});
+
 		it('should create a valid full pokémon', function(done) {
 
 			request(app)
