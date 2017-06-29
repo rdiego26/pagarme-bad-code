@@ -101,6 +101,32 @@ describe('API', function() {
 
 		});
 
+		it('should not buy pokémon with quantity is greater on stock', function(done) {
+
+			const _pokemon = R.clone(_validFullPokemon);
+
+			request(app)
+				.put('/pokemons')
+				.send(_pokemon)
+				.expect(200)
+				.end(function(err, res) {
+					if(!err) {
+
+						const _order = {
+							name: _pokemon.name,
+							quantity: 10
+						};
+
+						request(app)
+							.post('/pokemons')
+							.send(_order)
+							.expect(400, done);
+
+					}
+				});
+
+		});
+
 		it('should create a valid full pokémon', function(done) {
 
 			request(app)
