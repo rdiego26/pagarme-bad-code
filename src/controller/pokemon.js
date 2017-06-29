@@ -34,7 +34,7 @@ const controller = {
 					error: 'Pokémon not registered!'
 				});
 
-			} else if (!pokemon ||  pokemon.stock < _pokemon.quantity) {
+			} else if (pokemon.stock < _pokemon.quantity) {
 
 				res.status(400).send({
 					error: 'Not enought ' + pokemon.name + ' in stock: ' + pokemon.stock
