@@ -21,6 +21,9 @@ describe('Pokémon Spec', function() {
 		dao.create(_fullPokemon).then(function(created) {
 			assert.isObject(created);
 			assert.property(created, 'id');
+			assert.isString(created.name);
+			assert.isNumber(created.price);
+			assert.isNumber(created.stock);
 			done();
 		});
 	});
@@ -29,6 +32,11 @@ describe('Pokémon Spec', function() {
 		dao.create(_simplePokemon).then(function(created) {
 			assert.isObject(created);
 			assert.property(created, 'id');
+			assert.property(created, 'createdAt');
+			assert.property(created, 'updatedAt');
+			assert.isString(created.name);
+			assert.isNumber(created.price);
+			assert.isNumber(created.stock);
 			done();
 		});
 	});
