@@ -31,13 +31,21 @@ const controller = {
 			if (!pokemon) {
 
 				res.status(400).send({
-					error: 'Pokémon not registered!'
+					statusText: 'Bad Request',
+					validations: [{
+						property: 'name',
+						messages: ['Pokémon not registered!']
+					}]
 				});
 
 			} else if (pokemon.stock < _pokemon.quantity) {
 
 				res.status(400).send({
-					error: 'Not enought ' + pokemon.name + ' in stock: ' + pokemon.stock
+					statusText: 'Bad Request',
+					validations: [{
+						property: 'quantity',
+						messages: ['Not enought ' + pokemon.name + ' in stock: ' + pokemon.stock]
+					}]
 				});
 
 			} else {
@@ -55,15 +63,20 @@ const controller = {
 
 							pokemon.stock = pokemon.stock - _pokemon.quantity;
 							pokemon.save()
-								.then(function(pokemon) {
+								.then(function() {
 									res.send(body);
 								})
 						} else {
-							res.status(400).end();
+							res.status(400).send({
+								statusText: 'Bad Request',
+								validations: [{
+									property: 'body',
+									messages: ['Buy operation error']
+								}]
+							});
 						}
 					})
 					.catch(function (err){
-						console.log(JSON.stringify(err, null, 4));
 						res.status(err.response.statusCode).send(err.response.body);
 					})
 
