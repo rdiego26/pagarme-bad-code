@@ -1,7 +1,6 @@
 const request = require('supertest'),
 	path = require('path'),
 	R = require('ramda'),
-	dao = require(path.resolve('src/dao/pokemon')),
 	model = require(path.resolve('src/model/pokemon')),
 	mocks = require(path.resolve('test/mocks')),
 	assert = require('chai').assert,
