@@ -25,9 +25,9 @@ app.use(jsonSchemaValidation);
 app.listen(app.get('port'), function () {
 
 	pokemonModel.sync({force: true}).then(function () {
-        console.log('Listening app ' + app.get('title') + ' on port ' + app.get('port'));
+        console.log("Listening app " + app.get("title") + " on port " + app.get("port"));
     }).error(function(error) {
-        console.error('Error while starting app/sync database :(' + error);
+        console.error("Error while starting app/sync database " + error);
 	});
 
 });

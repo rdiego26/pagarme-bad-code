@@ -1,8 +1,8 @@
 "use strict";
 
-const path = require('path');
-const appData = require(path.resolve('./package.json'));
-const timeUtil = require(path.resolve('src/utils/time'));
+const path = require("path");
+const appData = require(path.resolve("./package.json"));
+const timeUtil = require(path.resolve("src/utils/time"));
 
 const controller = {
 

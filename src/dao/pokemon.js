@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const path = require('path');
-const model = require(path.resolve('src/model/pokemon'));
+const path = require("path");
+const model = require(path.resolve("src/model/pokemon"));
 
 const dao = {
 
