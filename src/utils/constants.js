@@ -10,7 +10,7 @@ const constants = {
 	},
 
 	server: {
-		port: 3000
+		port: process.env.POKEMON_PORT || 3000
 	},
 
 	pagarme: {
