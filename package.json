@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "bugs": {
     "url": "https://github.com/rdiego26/pagarme-bad-code/issues"
@@ -28,6 +30,7 @@
     "sqlite3": "3.1.8"
   },
   "devDependencies": {
+    "codecov": "1.0.0",
     "chai": "3.5.0",
     "istanbul": "0.4.2",
     "mocha": "2.4.5",

@@ -5,3 +5,7 @@ install:
   - "npm install"
 script:
   - "npm test"
+  - "npm run cover"
+  - "codecov --token=d48ea85f-11bc-4604-8329-8bb8841f3fe4"
+after_success:
+  - "npm run coveralls"
