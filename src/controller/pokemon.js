@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const path = require('path');
-const dao = require(path.resolve('src/dao/pokemon'));
-const pagarMeProvider = require(path.resolve('src/provider/pagarme'));
-const request = require('request-promise');
+const path = require("path");
+const dao = require(path.resolve("src/dao/pokemon"));
+const pagarMeProvider = require(path.resolve("src/provider/pagarme"));
+const request = require("request-promise");
 
 const controller = {
 
@@ -31,20 +31,20 @@ const controller = {
 			if (!pokemon) {
 
 				res.status(400).send({
-					statusText: 'Bad Request',
+					statusText: "Bad Request",
 					validations: [{
-						property: 'name',
-						messages: ['Pokémon not registered!']
+						property: "name",
+						messages: ["Pokémon not registered!"]
 					}]
 				});
 
 			} else if (pokemon.stock < _pokemon.quantity) {
 
 				res.status(400).send({
-					statusText: 'Bad Request',
+					statusText: "Bad Request",
 					validations: [{
-						property: 'quantity',
-						messages: ['Not enought ' + pokemon.name + ' in stock: ' + pokemon.stock]
+						property: "quantity",
+						messages: ["Not enought " + pokemon.name + " in stock: " + pokemon.stock]
 					}]
 				});
 
@@ -59,7 +59,7 @@ const controller = {
 
 				pagarMeProvider.buyPokemon(_data)
 					.then(function (body){
-						if (body.status === 'paid') {
+						if (body.status === "paid") {
 
 							pokemon.stock = pokemon.stock - _pokemon.quantity;
 							pokemon.save()
@@ -68,10 +68,10 @@ const controller = {
 								})
 						} else {
 							res.status(400).send({
-								statusText: 'Bad Request',
+								statusText: "Bad Request",
 								validations: [{
-									property: 'body',
-									messages: ['Buy operation error']
+									property: "body",
+									messages: ["Buy operation error"]
 								}]
 							});
 						}
