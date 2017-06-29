@@ -1,7 +1,7 @@
 {
   "name": "pokemon-seller",
   "version": "2.0.0",
-  "description": "Example of a really bad code",
+  "description": "Pokémon seller app",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
