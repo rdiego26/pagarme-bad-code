@@ -4,6 +4,7 @@ const path = require('path');
 const constants = require(path.resolve('src/utils/constants'));
 const express = require('express');
 const pokemonRoutes = require(path.resolve('src/routes/pokemon'));
+const healthCheckRoutes = require(path.resolve('src/routes/healthCheck'));
 const pokemonModel = require(path.resolve('src/model/pokemon'));
 const jsonSchemaValidation = require(path.resolve('src/middleware/jsonSchemaValidation'));
 const bodyParser = require('body-parser');
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use(helmet());
 
 pokemonRoutes(app);
+healthCheckRoutes(app);
 
 app.use(jsonSchemaValidation);
 
