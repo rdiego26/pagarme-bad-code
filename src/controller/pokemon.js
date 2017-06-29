@@ -59,7 +59,7 @@ const controller = {
 
 				pagarMeProvider.buyPokemon(_data)
 					.then(function (body){
-						if (body.status == 'paid') {
+						if (body.status === 'paid') {
 
 							pokemon.stock = pokemon.stock - _pokemon.quantity;
 							pokemon.save()
