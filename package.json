@@ -4,6 +4,7 @@
   "description": "Example of a really bad code",
   "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "mocha --recursive"
   },
   "bugs": {
