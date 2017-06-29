@@ -28,8 +28,8 @@
         "card_expiration_date": {
           "type": "string",
           "required": true,
-          "minLength": 3,
-          "maxLength": 3
+          "minLength": 4,
+          "maxLength": 4
         },
         "card_holder_name": {
           "type": "string",
@@ -38,6 +38,7 @@
         "card_cvv": {
           "type": "string",
           "required": true,
+          "minLength": 3,
           "maxLength": 3
         }
       }
