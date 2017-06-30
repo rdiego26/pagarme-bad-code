@@ -1,17 +1,17 @@
-const request = require('supertest'),
-	path = require('path'),
-	assert = require('chai').assert,
-	appData = require(path.resolve('package.json')),
-	app = require(path.resolve('src/index'));
+const request = require("supertest"),
+	path = require("path"),
+	assert = require("chai").assert,
+	appData = require(path.resolve("package.json")),
+	app = require(path.resolve("src/index"));
 
-describe('API', function() {
+describe("API", function() {
 
-	describe('Health Check Resource', function() {
+	describe("Health Check Resource", function() {
 
-		it('should get app info', function(done) {
+		it("should get app info", function(done) {
 
 			request(app)
-				.get('/healthCheck')
+				.get("/healthCheck")
 				.expect(200)
 				.end(function(err, res) {
 					if(!err) {
@@ -21,7 +21,7 @@ describe('API', function() {
 						assert.ok(_result.name === appData.name);
 						assert.ok(_result.version === appData.version);
 						assert.ok(_result.description === appData.description);
-						assert.property(_result, 'uptime');
+						assert.property(_result, "uptime");
 
 						done();
 					}
