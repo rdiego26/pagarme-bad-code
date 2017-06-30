@@ -71,8 +71,6 @@ const controller = {
 								})
 						} else {
 
-
-
 							res.status(400).send({
 								statusText: "Bad Request",
 								validations: [{
