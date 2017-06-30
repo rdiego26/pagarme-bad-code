@@ -67,11 +67,14 @@ const controller = {
 									res.send(body);
 								})
 						} else {
+
+							const messages = body.errors || ["Buy operation error"];
+
 							res.status(400).send({
 								statusText: "Bad Request",
 								validations: [{
 									property: "body",
-									messages: ["Buy operation error"]
+									messages: messages
 								}]
 							});
 						}
