@@ -26,9 +26,9 @@ const controller = {
 		_creditCard = req.body.credit_card || {};
 
 		dao.findOne(_filter)
-		.then(function(pokemon) {
+		.then(function(fetchedPokemon) {
 
-			if (!pokemon) {
+			if (!fetchedPokemon) {
 
 				res.status(400).send({
 					statusText: "Bad Request",
@@ -38,20 +38,20 @@ const controller = {
 					}]
 				});
 
-			} else if (pokemon.stock < _pokemon.quantity) {
+			} else if (fetchedPokemon.stock < _pokemon.quantity) {
 
 				res.status(400).send({
 					statusText: "Bad Request",
 					validations: [{
 						property: "quantity",
-						messages: ["Not enought " + pokemon.name + " in stock: " + pokemon.stock]
+						messages: ["Not enought " + fetchedPokemon.name + " in stock: " + fetchedPokemon.stock]
 					}]
 				});
 
 			} else {
 
 				var _data = {
-					pokemon: pokemon,
+					pokemon: fetchedPokemon,
 					creditCard: _creditCard
 				};
 
@@ -61,8 +61,8 @@ const controller = {
 					.then(function (body){
 						if (body.status === "paid") {
 
-							pokemon.stock = pokemon.stock - _pokemon.quantity;
-							pokemon.save()
+							fetchedPokemon.stock = fetchedPokemon.stock - _pokemon.quantity;
+							fetchedPokemon.save()
 								.then(function() {
 									res.send(body);
 								})
