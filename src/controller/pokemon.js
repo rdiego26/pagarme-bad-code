@@ -58,7 +58,10 @@ const controller = {
 				_data.pokemon.quantity = _pokemon.quantity;
 
 				pagarMeProvider.buyPokemon(_data)
-					.then(function (body){
+					.then(function (body) {
+
+						const _messages = body.errors || ["Buy operation error"];
+
 						if (body.status === "paid") {
 
 							fetchedPokemon.stock = fetchedPokemon.stock - _pokemon.quantity;
@@ -68,13 +71,13 @@ const controller = {
 								})
 						} else {
 
-							const messages = body.errors || ["Buy operation error"];
+
 
 							res.status(400).send({
 								statusText: "Bad Request",
 								validations: [{
 									property: "body",
-									messages: messages
+									messages: _messages
 								}]
 							});
 						}
