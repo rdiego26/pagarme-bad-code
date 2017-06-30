@@ -1,11 +1,11 @@
 const constants = {
 
 	db: {
-		name: process.env.POKEMON_DB || 'pokemons'
+		name: process.env.POKEMON_DB || "pokemons"
 	},
 
 	app: {
-		name: 'Pokémon seller',
+		name: "Pokémon seller",
 		limitPerRequest: 5
 	},
 
@@ -14,8 +14,8 @@ const constants = {
 	},
 
 	pagarme: {
-		uri: 'https://api.pagar.me/1/transactions',
-		apiKey: 'ak_test_WHgSu2XFmvoopAZMetV3LfA2RfEEQg'
+		uri: "https://api.pagar.me/1/transactions",
+		apiKey: "ak_test_WHgSu2XFmvoopAZMetV3LfA2RfEEQg"
 	}
 
 };

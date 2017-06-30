@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-const path = require('path');
-const sequelize = require(path.resolve('src/utils/connection'));
-const Sequelize = require('sequelize');
+const path = require("path");
+const sequelize = require(path.resolve("src/utils/connection"));
+const Sequelize = require("sequelize");
 
-const pokemon = sequelize.define('pokemon', {
+const pokemon = sequelize.define("pokemon", {
 	name: {
 		type: Sequelize.STRING,
 		allowNull: false,

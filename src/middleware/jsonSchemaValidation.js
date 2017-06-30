@@ -1,12 +1,12 @@
-'use strict';
+"use strict";
 
 module.exports = function(err, req, res, next) {
 
-    if (err.name === 'JsonSchemaValidation') {
+    if (err.name === "JsonSchemaValidation") {
         res.status(400);
 
         res.json({
-            statusText: 'Bad Request',
+            statusText: "Bad Request",
             validations: err.validations.body
         });
     } else {
