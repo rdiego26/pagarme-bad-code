@@ -7,7 +7,9 @@
     "start": "node src/index.js",
     "test": "mocha --recursive",
     "cover": "istanbul cover _mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "bugs": {
     "url": "https://github.com/rdiego26/pagarme-bad-code/issues"
@@ -24,10 +26,11 @@
     "express-jsonschema": "1.1.6",
     "helmet": "3.6.1",
     "ramda": "0.24.1",
-    "request": "2.81.0",
+    "request": "2.82.0",
     "request-promise": "4.0.0",
     "sequelize": "3.30.4",
-    "sqlite3": "3.1.8"
+    "sqlite3": "4.0.0",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "codecov": "1.0.0",
@@ -35,5 +38,6 @@
     "istanbul": "0.4.2",
     "mocha": "2.4.5",
     "supertest": "1.2.0"
-  }
+  },
+  "snyk": true
 }
