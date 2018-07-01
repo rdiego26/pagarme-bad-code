@@ -20,7 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "1.17.2",
-    "express": "4.15.3",
+    "express": "4.16.0",
     "express-jsonschema": "1.1.6",
     "helmet": "3.6.1",
     "ramda": "0.24.1",
