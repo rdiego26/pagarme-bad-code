@@ -26,8 +26,8 @@
     "ramda": "0.24.1",
     "request": "2.81.0",
     "request-promise": "4.0.0",
-    "sequelize": "3.30.4",
-    "sqlite3": "3.1.8"
+    "sequelize": "5.3.0",
+    "sqlite3": "4.0.0"
   },
   "devDependencies": {
     "codecov": "1.0.0",
