@@ -24,10 +24,10 @@
     "express-jsonschema": "1.1.6",
     "helmet": "3.6.1",
     "ramda": "0.24.1",
-    "request": "2.81.0",
+    "request": "2.87.0",
     "request-promise": "4.0.0",
     "sequelize": "3.30.4",
-    "sqlite3": "3.1.8"
+    "sqlite3": "5.0.3"
   },
   "devDependencies": {
     "codecov": "1.0.0",
