@@ -19,8 +19,8 @@
   "author": "Diego Ramos<rdiego26@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "1.17.2",
-    "express": "4.15.3",
+    "body-parser": "1.19.2",
+    "express": "4.17.3",
     "express-jsonschema": "1.1.6",
     "helmet": "3.6.1",
     "ramda": "0.24.1",
