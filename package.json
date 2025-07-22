@@ -27,7 +27,7 @@
     "request": "2.81.0",
     "request-promise": "4.0.0",
     "sequelize": "3.30.4",
-    "sqlite3": "3.1.8"
+    "sqlite3": "5.0.3"
   },
   "devDependencies": {
     "codecov": "1.0.0",
